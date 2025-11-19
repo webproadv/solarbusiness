@@ -59,7 +59,7 @@ export default function Hero() {
                 Chiama Ora
               </a>
               <a
-                href={`https://wa.me/393391860201?text=${encodeURIComponent('Benvenuto nel servizio di consulenza energetica di Lenergy Spa. Inserisci i tuoi dati di consumo oppure allega qua una bolletta energetica. \nFaremo in breve tempo una analisi gratuita dei tuoi consumi e una stima dell\'impianto fotovoltaico ideale per la tua azienda.')}`}
+                href="https://wa.me/393391860201"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 bg-green-50 text-green-700 px-8 py-4 rounded-lg text-lg font-semibold border-2 border-green-700 hover:bg-green-100 transition-all"

@@ -41,7 +41,7 @@ export default function Footer() {
               </a>
 
               <a
-                href={`https://wa.me/393391860201?text=${encodeURIComponent('Benvenuto nel servizio di consulenza energetica di Lenergy Spa. Inserisci i tuoi dati di consumo oppure allega qua una bolletta energetica. \nFaremo in breve tempo una analisi gratuita dei tuoi consumi e una stima dell\'impianto fotovoltaico ideale per la tua azienda.')}`}
+                href="https://wa.me/393391860201"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 text-gray-300 hover:text-green-400 transition-colors group"

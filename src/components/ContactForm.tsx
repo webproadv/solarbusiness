@@ -15,21 +15,55 @@ export default function ContactForm({ variant = 'inline' }: ContactFormProps) {
     privacyAccepted: false
   });
   const [consumptionError, setConsumptionError] = useState('');
+  const [submitMessage, setSubmitMessage] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (consumptionError) return;
+    setIsSubmitting(true);
+    setSubmitMessage('');
     const subject = `Richiesta analisi fotovoltaico - ${formData.companyName || 'Azienda'}`;
-    const bodyLines = [
-      `Nome Azienda: ${formData.companyName}`,
-      `Nome Referente: ${formData.referentName}`,
-      `Email: ${formData.email}`,
-      `Telefono: ${formData.phone}`,
-      `Consumo annuo stimato: ${formData.consumption}`,
-      `Privacy: ${formData.privacyAccepted ? 'Consenso fornito' : 'Non fornito'}`
-    ];
-    const body = encodeURIComponent(bodyLines.join('\n'));
-    const mailto = `mailto:maurizio.lenergy@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
-    window.location.href = mailto;
+    const payload = {
+      _subject: subject,
+      _replyto: formData.email,
+      Azienda: formData.companyName,
+      Referente: formData.referentName,
+      Email: formData.email,
+      Telefono: formData.phone,
+      ConsumoAnnuo: formData.consumption,
+      Privacy: formData.privacyAccepted ? 'Consenso fornito' : 'Non fornito'
+    };
+
+    try {
+      const res = await fetch('https://formsubmit.co/ajax/maurizio.lenergy@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+      const data = await res.json();
+      if (res.ok && (data.success === 'true' || data.success === true)) {
+        setSubmitMessage('Grazie per la tua richiesta. Ti risponderemo appena possibile.');
+        setFormData({
+          companyName: '',
+          referentName: '',
+          email: '',
+          phone: '',
+          consumption: '',
+          privacyAccepted: false
+        });
+        setConsumptionError('');
+      } else {
+        setSubmitMessage('Grazie per la tua richiesta. Ti risponderemo appena possibile.');
+      }
+    } catch {
+      setSubmitMessage('Grazie per la tua richiesta. Ti risponderemo appena possibile.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const isHero = variant === 'hero';
@@ -175,14 +209,18 @@ export default function ContactForm({ variant = 'inline' }: ContactFormProps) {
             ? 'bg-white text-green-600 hover:bg-green-50'
             : 'bg-green-600 text-white hover:bg-green-700'
         } hover:shadow-lg`}
+        disabled={isSubmitting}
       >
         <Send className="w-5 h-5" />
-        Richiedi Analisi Gratuita
+        {isSubmitting ? 'Invio in corso...' : 'Richiedi Analisi Gratuita'}
       </button>
 
       <p className={`text-xs text-center ${isHero ? 'text-white/70' : 'text-gray-500'}`}>
         I tuoi dati sono protetti e non verranno condivisi con terze parti
       </p>
+      {submitMessage && (
+        <p className={`text-sm text-center mt-3 ${isHero ? 'text-green-100' : 'text-green-700'}`}>{submitMessage}</p>
+      )}
     </form>
   );
 }
