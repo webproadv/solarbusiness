@@ -18,7 +18,18 @@ export default function ContactForm({ variant = 'inline' }: ContactFormProps) {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+    const subject = `Richiesta analisi fotovoltaico - ${formData.companyName || 'Azienda'}`;
+    const bodyLines = [
+      `Nome Azienda: ${formData.companyName}`,
+      `Nome Referente: ${formData.referentName}`,
+      `Email: ${formData.email}`,
+      `Telefono: ${formData.phone}`,
+      `Consumo annuo stimato: ${formData.consumption}`,
+      `Privacy: ${formData.privacyAccepted ? 'Consenso fornito' : 'Non fornito'}`
+    ];
+    const body = encodeURIComponent(bodyLines.join('\n'));
+    const mailto = `mailto:maurizio.lenergy@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+    window.location.href = mailto;
   };
 
   const isHero = variant === 'hero';

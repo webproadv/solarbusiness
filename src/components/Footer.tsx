@@ -1,4 +1,4 @@
-import { Mail, Phone, ExternalLink, ArrowRight, Zap } from 'lucide-react';
+import { Mail, Phone, ExternalLink, ArrowRight, Zap, MessageSquare } from 'lucide-react';
 import ContactForm from './ContactForm';
 
 export default function Footer() {
@@ -38,6 +38,16 @@ export default function Footer() {
               >
                 <Phone className="w-5 h-5 flex-shrink-0" />
                 <span className="group-hover:underline">+39 339 186 0201</span>
+              </a>
+
+              <a
+                href={`https://wa.me/393391860201?text=${encodeURIComponent('Benvenuto nel servizio di consulenza energetica di Lenergy Spa. Inserisci i tuoi dati di consumo oppure allega qua una bolletta energetica. \nFaremo in breve tempo una analisi gratuita dei tuoi consumi e una stima dell\'impianto fotovoltaico ideale per la tua azienda.')}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 text-gray-300 hover:text-green-400 transition-colors group"
+              >
+                <MessageSquare className="w-5 h-5 flex-shrink-0" />
+                <span className="group-hover:underline">WhatsApp</span>
               </a>
 
               <a

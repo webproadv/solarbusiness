@@ -1,4 +1,4 @@
-import { ArrowRight, TrendingDown, Shield, Leaf } from 'lucide-react';
+import { ArrowRight, TrendingDown, Shield, Leaf, MessageSquare } from 'lucide-react';
 import ContactForm from './ContactForm';
 
 export default function Hero() {
@@ -9,7 +9,7 @@ export default function Hero() {
           <div className="space-y-8">
             <div className="inline-flex items-center gap-2 bg-green-50 text-green-700 px-4 py-2 rounded-full text-sm font-medium">
               <Leaf className="w-4 h-4" />
-              Incentivi Statali 2024/2025 Disponibili
+              Incentivi Statali 2025/2026 Disponibili
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
@@ -57,6 +57,15 @@ export default function Hero() {
                 className="inline-flex items-center justify-center gap-2 bg-white text-gray-900 px-8 py-4 rounded-lg text-lg font-semibold border-2 border-gray-900 hover:bg-gray-900 hover:text-white transition-all"
               >
                 Chiama Ora
+              </a>
+              <a
+                href={`https://wa.me/393391860201?text=${encodeURIComponent('Benvenuto nel servizio di consulenza energetica di Lenergy Spa. Inserisci i tuoi dati di consumo oppure allega qua una bolletta energetica. \nFaremo in breve tempo una analisi gratuita dei tuoi consumi e una stima dell\'impianto fotovoltaico ideale per la tua azienda.')}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 bg-green-50 text-green-700 px-8 py-4 rounded-lg text-lg font-semibold border-2 border-green-700 hover:bg-green-100 transition-all"
+              >
+                WhatsApp
+                <MessageSquare className="w-5 h-5" />
               </a>
             </div>
           </div>
