@@ -1,9 +1,14 @@
 import { Mail, Phone, ExternalLink, ArrowRight, Zap, MessageSquare } from 'lucide-react';
 import ContactForm from './ContactForm';
+import { useState } from 'react';
+import PrivacyPolicyModal from './PrivacyPolicyModal';
 
 export default function Footer() {
+  const [showPrivacyModal, setShowPrivacyModal] = useState(false);
+
   return (
     <footer className="bg-gray-900 text-white">
+      <PrivacyPolicyModal isOpen={showPrivacyModal} onClose={() => setShowPrivacyModal(false)} />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="grid md:grid-cols-2 gap-16 mb-16">
           <div>
@@ -152,6 +157,12 @@ export default function Footer() {
           <div className="text-center text-gray-500 text-sm">
             <p>© 2026 L'Energy S.p.A. - Partita IVA IT12345678901</p>
             <p className="mt-2">Soluzioni energetiche professionali per l'industria italiana</p>
+            <button
+              onClick={() => setShowPrivacyModal(true)}
+              className="mt-4 hover:text-green-400 transition-colors underline"
+            >
+              Privacy Policy
+            </button>
           </div>
         </div>
       </div>

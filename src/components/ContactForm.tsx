@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Send } from 'lucide-react';
+import PrivacyPolicyModal from './PrivacyPolicyModal';
 
 interface ContactFormProps {
   variant?: 'hero' | 'inline';
@@ -17,6 +18,7 @@ export default function ContactForm({ variant = 'inline' }: ContactFormProps) {
   const [consumptionError, setConsumptionError] = useState('');
   const [submitMessage, setSubmitMessage] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showPrivacyModal, setShowPrivacyModal] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -198,9 +200,18 @@ export default function ContactForm({ variant = 'inline' }: ContactFormProps) {
           }`}
         />
         <label className="text-sm">
-          Acconsento al trattamento dei dati personali
+          Acconsento al trattamento dei dati personali. Leggi la{' '}
+          <button
+            type="button"
+            onClick={() => setShowPrivacyModal(true)}
+            className="underline hover:text-green-500 transition-colors"
+          >
+            Privacy Policy
+          </button>
         </label>
       </div>
+
+      <PrivacyPolicyModal isOpen={showPrivacyModal} onClose={() => setShowPrivacyModal(false)} />
 
       <button
         type="submit"
