@@ -54,16 +54,6 @@ export default function Footer() {
                 <MessageSquare className="w-5 h-5 flex-shrink-0" />
                 <span className="group-hover:underline">WhatsApp</span>
               </a>
-
-              <a
-                href="https://business.lenergyspa.it/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-3 text-gray-300 hover:text-green-400 transition-colors group"
-              >
-                <ExternalLink className="w-5 h-5 flex-shrink-0" />
-                <span className="group-hover:underline">business.lenergyspa.it</span>
-              </a>
             </div>
 
             <div className="bg-green-600/10 border border-green-600/20 rounded-xl p-6 backdrop-blur-sm">
@@ -155,7 +145,7 @@ export default function Footer() {
           </div>
 
           <div className="text-center text-gray-500 text-sm">
-            <p>© 2026 L'Energy S.p.A. - Partita IVA IT12345678901</p>
+            <p>© 2026 Maurizio Galli Consulente Energetico - Partita IVA IT12345678901</p>
             <p className="mt-2">Soluzioni energetiche professionali per l'industria italiana</p>
             <button
               onClick={() => setShowPrivacyModal(true)}

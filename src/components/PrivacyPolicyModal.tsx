@@ -35,7 +35,7 @@ export default function PrivacyPolicyModal({ isOpen, onClose }: PrivacyPolicyMod
           <section>
             <h3 className="text-lg font-bold text-gray-900 mb-3">1. Titolare del Trattamento</h3>
             <p>
-              Il Titolare del trattamento dei dati è <strong>L'Energy S.p.A.</strong>, con sede legale in Italia.
+              Il Titolare del trattamento dei dati è <strong>Maurizio Galli Consulente Energetico</strong>, con sede legale in Italia.
               Il trattamento dei dati personali avviene nel rispetto del Regolamento UE 2016/679 (GDPR) e della normativa italiana vigente in materia di protezione dei dati personali.
             </p>
           </section>
@@ -78,7 +78,7 @@ export default function PrivacyPolicyModal({ isOpen, onClose }: PrivacyPolicyMod
           <section>
             <h3 className="text-lg font-bold text-gray-900 mb-3">6. Comunicazione dei Dati</h3>
             <p>
-              I dati non saranno diffusi. Potranno essere comunicati a soggetti terzi (es. fornitori di servizi tecnici, hosting provider, società informatiche) che agiscono in qualità di Responsabili del trattamento per conto di L'Energy S.p.A.
+              I dati non saranno diffusi. Potranno essere comunicati a soggetti terzi (es. fornitori di servizi tecnici, hosting provider, società informatiche) che agiscono in qualità di Responsabili del trattamento per conto di Maurizio Galli Consulente Energetico.
             </p>
           </section>
 
