@@ -94,10 +94,34 @@ export default function Investment() {
 
             <div className="space-y-6">
               <div className="bg-white/10 rounded-xl p-6 backdrop-blur-sm">
-                <h4 className="font-bold text-xl mb-3">Transizione 5.0</h4>
-                <p className="text-blue-100 mb-4">Credito d'imposta fino al 45% per impianti che generano risparmio energetico certificato.</p>
+                <h4 className="font-bold text-xl mb-3">Iperammortamento 180%</h4>
+                <p className="text-blue-100 mb-4">Dedicuzione fiscale maggiorata per investimenti in beni strumentali nuovi e idonei.</p>
                 <div className="flex items-center gap-2 text-green-400 font-semibold">
-                  <span>Fino a €45.000 su €100.000 di investimento</span>
+                  <span>Recupero fiscale su impianti idonei</span>
+                </div>
+              </div>
+
+              <div className="bg-white/10 rounded-xl p-6 backdrop-blur-sm">
+                <h4 className="font-bold text-xl mb-3">Legge Sabatini</h4>
+                <p className="text-blue-100 mb-4">Contributo in conto interessi per l'acquisto di nuovi macchinari e impianti produttivi.</p>
+                <div className="flex items-center gap-2 text-green-400 font-semibold">
+                  <span>Accesso al credito agevolato</span>
+                </div>
+              </div>
+
+              <div className="bg-white/10 rounded-xl p-6 backdrop-blur-sm">
+                <h4 className="font-bold text-xl mb-3">Noleggio Operativo</h4>
+                <p className="text-blue-100 mb-4">Canone mensile interamente deducibile senza esposizione finanziaria.</p>
+                <div className="flex items-center gap-2 text-green-400 font-semibold">
+                  <span>Liquidità aziendale preservata</span>
+                </div>
+              </div>
+
+              <div className="bg-white/10 rounded-xl p-6 backdrop-blur-sm">
+                <h4 className="font-bold text-xl mb-3">Conto Termico 3.0</h4>
+                <p className="text-blue-100 mb-4">Incentivi per l'incremento dell'efficienza energetica e la produzione di energia termica.</p>
+                <div className="flex items-center gap-2 text-green-400 font-semibold">
+                  <span>Riqualificazione energetica agevolata</span>
                 </div>
               </div>
 

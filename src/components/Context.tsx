@@ -49,9 +49,9 @@ export default function Context() {
             <div className="bg-green-600 w-14 h-14 rounded-xl flex items-center justify-center mb-6">
               <Award className="w-7 h-7 text-white" />
             </div>
-            <p className="text-5xl font-bold text-gray-900 mb-3">45%</p>
+            <p className="text-5xl font-bold text-gray-900 mb-3">180%</p>
             <p className="text-gray-600 font-medium">
-              Credito d'imposta disponibile con Transizione 5.0 per impianti qualificati
+              Iperammortamento disponibile per impianti idonei
             </p>
           </div>
         </div>
@@ -66,11 +66,11 @@ export default function Context() {
               </div>
               <div>
                 <p className="text-sm text-gray-400 mb-2">2022</p>
-                <p className="text-3xl font-bold text-red-400">€0.54/kWh</p>
+                <p className="text-3xl font-bold text-red-400">€0.30/kWh</p>
               </div>
               <div>
                 <p className="text-sm text-gray-400 mb-2">Con Fotovoltaico</p>
-                <p className="text-3xl font-bold text-green-400">€0.08/kWh</p>
+                <p className="text-3xl font-bold text-green-400">€0.04/kWh</p>
               </div>
             </div>
             <p className="text-center mt-8 text-gray-300">

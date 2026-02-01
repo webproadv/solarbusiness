@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Send } from 'lucide-react';
+import { useState, useRef } from 'react';
+import { Send, Upload, X } from 'lucide-react';
 import PrivacyPolicyModal from './PrivacyPolicyModal';
 
 interface ContactFormProps {
@@ -15,36 +15,60 @@ export default function ContactForm({ variant = 'inline' }: ContactFormProps) {
     consumption: '',
     privacyAccepted: false
   });
+  const [file, setFile] = useState<File | null>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
   const [consumptionError, setConsumptionError] = useState('');
   const [submitMessage, setSubmitMessage] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showPrivacyModal, setShowPrivacyModal] = useState(false);
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      const selectedFile = e.target.files[0];
+      if (selectedFile.size > 5 * 1024 * 1024) {
+        alert('Il file è troppo grande. La dimensione massima consentita è 5MB.');
+        return;
+      }
+      setFile(selectedFile);
+    }
+  };
+
+  const removeFile = () => {
+    setFile(null);
+    if (fileInputRef.current) {
+      fileInputRef.current.value = '';
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (consumptionError) return;
     setIsSubmitting(true);
     setSubmitMessage('');
+
     const subject = `Richiesta analisi fotovoltaico - ${formData.companyName || 'Azienda'}`;
-    const payload = {
-      _subject: subject,
-      _replyto: formData.email,
-      Azienda: formData.companyName,
-      Referente: formData.referentName,
-      Email: formData.email,
-      Telefono: formData.phone,
-      ConsumoAnnuo: formData.consumption,
-      Privacy: formData.privacyAccepted ? 'Consenso fornito' : 'Non fornito'
-    };
+    
+    const formDataToSend = new FormData();
+    formDataToSend.append('_subject', subject);
+    formDataToSend.append('_replyto', formData.email);
+    formDataToSend.append('Azienda', formData.companyName);
+    formDataToSend.append('Referente', formData.referentName);
+    formDataToSend.append('Email', formData.email);
+    formDataToSend.append('Telefono', formData.phone);
+    formDataToSend.append('ConsumoAnnuo', formData.consumption);
+    formDataToSend.append('Privacy', formData.privacyAccepted ? 'Consenso fornito' : 'Non fornito');
+    
+    if (file) {
+      formDataToSend.append('attachment', file);
+    }
 
     try {
       const res = await fetch('https://formsubmit.co/ajax/maurizio.lenergy@gmail.com', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
           Accept: 'application/json'
         },
-        body: JSON.stringify(payload)
+        body: formDataToSend
       });
       const data = await res.json();
       if (res.ok && (data.success === 'true' || data.success === true)) {
@@ -57,6 +81,10 @@ export default function ContactForm({ variant = 'inline' }: ContactFormProps) {
           consumption: '',
           privacyAccepted: false
         });
+        setFile(null);
+        if (fileInputRef.current) {
+          fileInputRef.current.value = '';
+        }
         setConsumptionError('');
       } else {
         setSubmitMessage('Grazie per la tua richiesta. Ti risponderemo appena possibile.');
@@ -187,6 +215,47 @@ export default function ContactForm({ variant = 'inline' }: ContactFormProps) {
         {consumptionError && (
           <p className={`${isHero ? 'text-red-300' : 'text-red-600'} text-xs mt-2`}>{consumptionError}</p>
         )}
+      </div>
+
+      <div>
+        <input
+          type="file"
+          ref={fileInputRef}
+          onChange={handleFileChange}
+          className="hidden"
+          accept=".pdf,.jpg,.jpeg,.png,.doc,.docx"
+        />
+        <div className="relative">
+          <button
+            type="button"
+            onClick={() => fileInputRef.current?.click()}
+            className={`w-full px-4 py-3 rounded-lg border text-left flex items-center justify-between group ${
+              isHero
+                ? 'bg-white/10 border-white/20 text-white placeholder-white/60 focus:border-white hover:bg-white/20'
+                : 'bg-white border-gray-300 text-gray-500 hover:border-green-600'
+            } transition-colors`}
+          >
+            <span className={`truncate ${!file ? 'opacity-70' : ''}`}>
+              {file ? file.name : 'Allega bolletta energetica (Opzionale)'}
+            </span>
+            <Upload className={`w-5 h-5 ${isHero ? 'text-white/70' : 'text-gray-400 group-hover:text-green-600'}`} />
+          </button>
+          {file && (
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                removeFile();
+              }}
+              className="absolute right-12 top-1/2 -translate-y-1/2 p-1 hover:bg-black/10 rounded-full transition-colors"
+            >
+              <X className={`w-4 h-4 ${isHero ? 'text-white' : 'text-gray-500'}`} />
+            </button>
+          )}
+        </div>
+        <p className={`text-xs mt-2 ml-1 ${isHero ? 'text-white/60' : 'text-gray-500'}`}>
+          Formati accettati: PDF, JPG, PNG, DOC
+        </p>
       </div>
 
       <div className={`flex items-center gap-3 ${isHero ? 'text-white' : 'text-gray-700'}`}>

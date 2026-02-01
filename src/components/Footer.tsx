@@ -146,7 +146,7 @@ export default function Footer() {
 
           <div className="text-center text-gray-500 text-sm">
             <p>© 2026 Maurizio Galli Consulente Energetico - Partita IVA IT12345678901</p>
-            <p className="mt-2">Soluzioni energetiche professionali per l'industria italiana</p>
+            <p className="mt-2">Soluzioni energetiche professionali per Lenergy Business</p>
             <button
               onClick={() => setShowPrivacyModal(true)}
               className="mt-4 hover:text-green-400 transition-colors underline"
