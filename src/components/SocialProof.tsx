@@ -125,8 +125,8 @@ export default function SocialProof() {
             </div>
             <div className="text-center">
               <CheckCircle className="w-12 h-12 text-green-600 mx-auto mb-4" />
-              <p className="text-3xl font-bold text-gray-900 mb-2">25+ Anni</p>
-              <p className="text-gray-600">Garanzia su tutti i moduli</p>
+              <p className="text-3xl font-bold text-gray-900 mb-2">30 Anni</p>
+              <p className="text-gray-600">Garanzia sulla produzione</p>
             </div>
             <div className="text-center">
               <CheckCircle className="w-12 h-12 text-green-600 mx-auto mb-4" />

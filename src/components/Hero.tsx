@@ -32,8 +32,8 @@ export default function Hero() {
                 <div className="flex justify-center mb-2">
                   <Shield className="w-6 h-6 text-blue-900" />
                 </div>
-                <p className="text-2xl font-bold text-gray-900">25 Anni</p>
-                <p className="text-sm text-gray-600">Garanzia Moduli</p>
+                <p className="text-2xl font-bold text-gray-900">30 Anni</p>
+                <p className="text-sm text-gray-600">Garanzia Produzione</p>
               </div>
               <div className="text-center">
                 <div className="flex justify-center mb-2">

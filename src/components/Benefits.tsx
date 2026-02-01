@@ -26,7 +26,7 @@ export default function Benefits() {
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
                 <Zap className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
-                <span className="text-gray-700">Produzione garantita per 25+ anni</span>
+                <span className="text-gray-700">Produzione garantita per 30 anni</span>
               </li>
               <li className="flex items-start gap-3">
                 <Zap className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />

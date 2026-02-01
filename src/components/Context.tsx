@@ -65,7 +65,7 @@ export default function Context() {
                 <p className="text-3xl font-bold text-green-400">€0.18/kWh</p>
               </div>
               <div>
-                <p className="text-sm text-gray-400 mb-2">2022</p>
+                <p className="text-sm text-gray-400 mb-2">2025</p>
                 <p className="text-3xl font-bold text-red-400">€0.30/kWh</p>
               </div>
               <div>
@@ -74,7 +74,7 @@ export default function Context() {
               </div>
             </div>
             <p className="text-center mt-8 text-gray-300">
-              Blocca oggi il costo della tua energia per i prossimi 25 anni. L'indipendenza energetica è il vero vantaggio competitivo.
+              Blocca oggi il costo della tua energia per i prossimi 30 anni. L'indipendenza energetica è il vero vantaggio competitivo.
             </p>
           </div>
         </div>

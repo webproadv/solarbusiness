@@ -11,7 +11,7 @@ export default function TechnicalSpecs() {
       items: [
         'Tecnologia monocristallina PERC/TOPCon ad alta efficienza (>21%)',
         'Moduli Tier-1 certificati da produttori leader mondiali',
-        'Garanzia prodotto 25 anni, garanzia rendimento 30 anni',
+        'Garanzia sulla produzione 30 anni',
         'Resistenza garantita a condizioni atmosferiche estreme',
         'Degradazione <0,5% annuo per performance costanti nel tempo'
       ]
@@ -122,8 +122,8 @@ export default function TechnicalSpecs() {
                 <p className="text-gray-300">Certificazioni Conformi</p>
               </div>
               <div className="bg-white/10 rounded-xl p-6 backdrop-blur-sm">
-                <p className="text-4xl font-bold text-green-400 mb-2">25+</p>
-                <p className="text-gray-300">Anni di Garanzia</p>
+                <p className="text-4xl font-bold text-green-400 mb-2">30+</p>
+                <p className="text-gray-300">Anni Garanzia Produzione</p>
               </div>
               <div className="bg-white/10 rounded-xl p-6 backdrop-blur-sm">
                 <p className="text-4xl font-bold text-green-400 mb-2">24/7</p>
