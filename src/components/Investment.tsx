@@ -95,7 +95,7 @@ export default function Investment() {
             <div className="space-y-6">
               <div className="bg-white/10 rounded-xl p-6 backdrop-blur-sm">
                 <h4 className="font-bold text-xl mb-3">Iperammortamento 180%</h4>
-                <p className="text-blue-100 mb-4">Dedicuzione fiscale maggiorata per investimenti in beni strumentali nuovi e idonei.</p>
+                <p className="text-blue-100 mb-4">Detrazione fiscale maggiorata per investimenti in beni strumentali nuovi e idonei.</p>
                 <div className="flex items-center gap-2 text-green-400 font-semibold">
                   <span>Recupero fiscale su impianti idonei</span>
                 </div>

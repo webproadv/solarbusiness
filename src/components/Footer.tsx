@@ -34,7 +34,7 @@ export default function Footer() {
                 className="flex items-center gap-3 text-gray-300 hover:text-green-400 transition-colors group"
               >
                 <Mail className="w-5 h-5 flex-shrink-0" />
-                <span className="group-hover:underline">maurizio.lenergy@gmail.com</span>
+                <span className="group-hover:underline">maurizio.galli@lenergy.it</span>
               </a>
 
               <a
@@ -145,8 +145,8 @@ export default function Footer() {
           </div>
 
           <div className="text-center text-gray-500 text-sm">
-            <p>© 2026 Maurizio Galli Consulente Energetico - Partita IVA IT12345678901</p>
-            <p className="mt-2">Soluzioni energetiche professionali per Lenergy Business</p>
+            <p>© 2026 Maurizio Galli Consulente Energetico - Lenergy Business - Partita IVA 02348830502</p>
+            <p className="mt-2">Soluzioni energetiche professionali</p>
             <button
               onClick={() => setShowPrivacyModal(true)}
               className="mt-4 hover:text-green-400 transition-colors underline"
